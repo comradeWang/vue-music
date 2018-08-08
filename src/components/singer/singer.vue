@@ -1,11 +1,13 @@
 <template>
-  <div class="singer"></div>
+  <div class="singer">
+    singer页面
+  </div>
 </template>
 
 <script>
 export default {
   name: 'singer'
-};
+}
 </script>
 
 <style scoped>

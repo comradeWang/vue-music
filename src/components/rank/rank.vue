@@ -1,5 +1,7 @@
 <template>
-    <div class="rank"></div>
+    <div class="rank">
+      rank页面
+    </div>
 </template>
 
 <script>

@@ -3,15 +3,19 @@
     <!--<img src="./assets/logo.png">-->
     <!--<router-view/>-->
     <MHeader></MHeader>
+    <Tab></Tab>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import MHeader from './components/m-header/m-header'
+import Tab from './components/tab/tab'
 export default {
   name: 'App',
   components: {
-    MHeader
+    MHeader,
+    Tab
   }
 }
 </script>
@@ -23,6 +27,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 </style>
