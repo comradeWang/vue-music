@@ -9,14 +9,19 @@ import router from './router'
 import 'common/stylus/index.styl'
 import 'common/stylus/varible.styl'
 import fastclick from 'fastclick'
+import axios from 'axios'
+import Swiper from 'swiper'
 
+import 'swiper/dist/css/swiper.min.css'
 fastclick.attach(document.body)
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.prototype.$axios = axios
 /* eslint-disable no-new */
+
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })
