@@ -110,6 +110,7 @@ export default {
 <style scoped lang="scss">
   @import "../../common/scss/variable";
   .recommend {
+    height: 100vh;
     .loading-container {
       position: absolute;
       width: 100%;
