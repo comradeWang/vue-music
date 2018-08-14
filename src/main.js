@@ -10,6 +10,8 @@ import fastclick from 'fastclick'
 import axios from 'axios'
 // 引入全部组件
 import Mint from 'mint-ui'
+import common from './common/js/common'
+Vue.use(common)
 Vue.use(Mint)
 fastclick.attach(document.body)
 Vue.config.productionTip = false

@@ -43,10 +43,27 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     watchOptions: {
       poll: config.dev.poll,
     }
+    /*before: function (){
+      apiRoutes.get('/getDiscList',(req,res)=>{
+        const url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg';
+        axios.get(url, {
+          headers: {
+            referer: 'https://c.y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query  //这是请求的query
+        }).then((response) => {
+          //response是api地址返回的，数据在data里。
+          res.json(response.data)
+        }).catch((e) => {
+          console.log(e);
+        })
+      });
+    }*/
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': require('../config/dev.env')
+      'process.env':   require('../config/dev.env')
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.

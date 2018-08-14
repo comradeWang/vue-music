@@ -1,7 +1,7 @@
 <template>
   <div class="recommend">
     <div class="recommend-content">
-      <div class="slider-wrapper">
+      <div class="slider-wrapper" v-if="sliderList.length">
         <div class="swiper-container">
           <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="(item,$index) in sliderList" :key="$index">
@@ -28,15 +28,17 @@
 
 <script>
 import Loading from '../../base/loading/loading'
-import { getRecommend } from '../../api/recommend'
+import { getRecommend, getDiscList } from '../../api/recommend'
 import { ERR_OK } from '../../api/config'
+import Slider from '../../base/slider/slider'
 
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 export default {
   name: 'recommend',
   components: {
-    Loading
+    Loading,
+    Slider
   },
   data () {
     return {
@@ -46,21 +48,9 @@ export default {
     }
   },
   methods: {
-    // testAxios () {
-    //   this.$axios.get('https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg', {
-    //     params: data
-    //   })
-    //     .then(function (response) {
-    //       console.log(response)
-    //     })
-    //     .catch(function (err) {
-    //       console.log(err)
-    //     })
-    // },
     _getRecommend () {
       getRecommend().then((res) => {
         if (res.code === ERR_OK) {
-          console.log(res.data)
           this.sliderList = res.data.slider
         }
       })
@@ -78,10 +68,20 @@ export default {
           bulletActiveClass: 'swiper-pagination-bullet-active'
         }
       })
+    },
+    _getDiscList () {
+      getDiscList().then((res) => {
+        // let result = this.musicJsonCallback(res)
+        console.log(res)
+        if (res.code === ERR_OK) {
+          console.log(res.data)
+        }
+      })
     }
   },
   created () {
     this._getRecommend()
+    this._getDiscList()
   },
   mounted () {
     let _this = this
