@@ -11,8 +11,13 @@ import axios from 'axios'
 // 引入全部组件
 import Mint from 'mint-ui'
 import common from './common/js/common'
+import VueLazyload from 'vue-lazyload'
 Vue.use(common)
 Vue.use(Mint)
+Vue.use(VueLazyload, {
+  loading: './static/image/logo.png',
+  preLoad: 1.3
+})
 fastclick.attach(document.body)
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios

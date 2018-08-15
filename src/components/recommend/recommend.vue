@@ -1,13 +1,13 @@
 <template>
   <div class="recommend">
-    <Scroll class="recommend-content" :data="discList">
+    <Scroll class="recommend-content" :data="discList" ref="scroll">
       <div class="content">
         <div class="slider-wrapper" v-if="sliderList.length">
           <div class="swiper-container">
             <div class="swiper-wrapper">
               <div class="swiper-slide" v-for="(item,$index) in sliderList" :key="$index">
                 <a :href="item.linkUrl">
-                  <img :src="item.picUrl" :alt="item.id" width="100%" height="200px">
+                  <img @load="loadImg" :src="item.picUrl" :alt="item.id" width="100%" height="200px">
                 </a>
               </div>
             </div>
@@ -20,7 +20,7 @@
             <li v-for="(item,index) in discList" :key="index">
               <div class="disc-container">
                 <div class="icon">
-                  <img :src="item.imgurl" alt="" width="60" height="60">
+                  <img v-lazy="item.imgurl" alt="" width="60" height="60">
                 </div>
                 <div class="text">
                   <h2 class="name"> {{item.creator.name}}</h2>
@@ -57,7 +57,8 @@ export default {
     return {
       discList: [],
       sliderList: [],
-      mySwiper: ''
+      mySwiper: '',
+      checkLoaded: false
     }
   },
   methods: {
@@ -92,6 +93,12 @@ export default {
           this.discList = res.data.list
         }
       })
+    },
+    loadImg () {
+      if (!this.checkLoaded) {
+        this.$refs.scroll.refresh()
+        this.checkLoaded = true
+      }
     }
   },
   created () {
@@ -110,7 +117,7 @@ export default {
 <style scoped lang="scss">
   @import "../../common/scss/variable";
   .recommend {
-    height: 100vh;
+    height: 88vh;
     .loading-container {
       position: absolute;
       width: 100%;
