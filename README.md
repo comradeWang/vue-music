@@ -1,6 +1,6 @@
 # vue-music
 
-> vue 音乐播放
+> vue 音乐播放器 ，纯前端，由Vue Cli 构建，使用express代理，获取QQ音乐的接口。
 
 ## Build Setup
 

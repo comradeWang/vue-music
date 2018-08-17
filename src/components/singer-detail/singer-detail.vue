@@ -6,6 +6,8 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import {ERR_OK} from '../../api/config'
+import {getSingerInfo} from '../../api/singer'
 export default {
   name: 'singer-detail',
   data () {
@@ -19,15 +21,31 @@ export default {
       'diss'
     ])
   },
+  methods: {
+    /**
+     * 获取歌手详情
+     * @private
+     */
+    _getSingerInfo () {
+      if (!this.singer) {
+        this.$router.push('/singer')
+        return
+      }
+      getSingerInfo(this.singer.id).then((res) => {
+        if (res.code === ERR_OK) {
+          console.log(res)
+        }
+      })
+    }
+  },
   mounted () {
-    console.log(this.singer)
-    console.log(this.diss)
+    this._getSingerInfo()
   }
 }
 </script>
 
 <style scoped lang="scss">
-  @import "../../common/scss/variable";
+  @import "~common/scss/variable";
   .singer-detail{
     position: fixed;
     z-index: 100;

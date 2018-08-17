@@ -39,6 +39,7 @@ module.exports = {
       'common': resolve('src/common'),
       "@components": path.join(__dirname, "..", "src", "components"),
       "~common": path.join(__dirname, "..", "src", "common"),
+      "@api": path.join(__dirname, "..", "src", "api"),
     }
   },
   module: {
