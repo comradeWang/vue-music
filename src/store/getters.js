@@ -4,6 +4,9 @@
  * @Time: 11:25
  * @Description: $
  */
-import state from './state'
-
-export const singer = state => state.singer
+const singer = state => state.singer
+const diss = state => state.diss
+export {
+  singer,
+  diss
+}

@@ -15,11 +15,13 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'singer'
+      'singer',
+      'diss'
     ])
   },
   mounted () {
     console.log(this.singer)
+    console.log(this.diss)
   }
 }
 </script>
