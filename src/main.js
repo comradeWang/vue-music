@@ -6,8 +6,10 @@ import App from './App'
 import router from './router'
 import 'common/stylus/index.styl'
 import 'common/stylus/varible.styl'
+import './common/scss/variable.scss'
 import fastclick from 'fastclick'
 import axios from 'axios'
+import store from './store'
 // 引入全部组件
 import Mint from 'mint-ui'
 import common from './common/js/common'
@@ -26,6 +28,7 @@ Vue.prototype.$axios = axios
 new Vue({
   el: '#app',
   router,
+  store,
   components: {App},
   template: '<App/>'
 })
