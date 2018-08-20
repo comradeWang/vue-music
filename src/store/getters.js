@@ -4,9 +4,10 @@
  * @Time: 11:25
  * @Description: $
  */
-const singer = state => state.singer
-const diss = state => state.diss
-export {
-  singer,
-  diss
+// let singer = state => state.singer
+// let diss = state => state.diss
+export default {
+  singer (state) {
+    return state.state.singer
+  }
 }

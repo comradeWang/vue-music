@@ -4,7 +4,7 @@
  * @Time: 11:22
  * @Description: $
  */
-const state = {
+let state = {
   singer: {},
   diss: ''
 }

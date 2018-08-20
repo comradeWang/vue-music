@@ -1,7 +1,7 @@
 <template>
   <div class="music-list">
     <div class="back-title">
-      <div class="back">
+      <div class="back" @click="backToSinger">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
       </div>
       <div class="title">{{title}}</div>
@@ -37,7 +37,11 @@ export default {
       return `background-image: url(${this.bgImage})`
     }
   },
-  methods: {},
+  methods: {
+    backToSinger () {
+      this.$router.push('/singer')
+    }
+  },
   mounted () {}
 }
 </script>

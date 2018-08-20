@@ -27,11 +27,11 @@ export default {
      * @param singer
      */
     selectSinger (singer) {
+      console.log(singer.name)
       this.$router.push({
         path: `/singer/${singer.id}`
       })
       this.setSinger(singer)
-      this.setDiss('你看这个面，宽又长；你看这个碗，圆又圆')
     },
     _getSingerList () {
       getSingerList().then((res) => {
