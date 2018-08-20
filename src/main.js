@@ -10,10 +10,10 @@ import './common/scss/variable.scss'
 import fastclick from 'fastclick'
 import axios from 'axios'
 import store from './store'
-// 引入全部组件
 import Mint from 'mint-ui'
 import common from './common/js/common'
 import VueLazyload from 'vue-lazyload'
+import 'font-awesome/css/font-awesome.min.css'
 Vue.use(common)
 Vue.use(Mint)
 Vue.use(VueLazyload, {

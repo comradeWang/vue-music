@@ -1,6 +1,8 @@
 <template>
   <transition name="slide">
-    <div class="singer-detail"></div>
+    <div class="singer-detail">
+      <MusicList :title="title" :bgImage="bgImage" :songList="songList"></MusicList>
+    </div>
   </transition>
 </template>
 
@@ -8,18 +10,29 @@
 import {mapGetters} from 'vuex'
 import {ERR_OK} from '../../api/config'
 import {getSingerInfo} from '../../api/singer'
+import {createSong} from '../../common/js/song'
+import MusicList from '@components/music-list/music-list'
 export default {
   name: 'singer-detail',
   data () {
     return {
-
+      songList: []
     }
+  },
+  components: {
+    MusicList
   },
   computed: {
     ...mapGetters([
       'singer',
       'diss'
-    ])
+    ]),
+    title () {
+      return this.singer.name
+    },
+    bgImage () {
+      return this.singer.avatar
+    }
   },
   methods: {
     /**
@@ -33,9 +46,20 @@ export default {
       }
       getSingerInfo(this.singer.id).then((res) => {
         if (res.code === ERR_OK) {
-          console.log(res)
+          this.songList = this._normalizeSongs(res.data.list)
+          console.log(this.songList)
         }
       })
+    },
+    _normalizeSongs (list) {
+      let ret = []
+      list.forEach((item) => {
+        let {musicData} = item
+        if (musicData.songid && musicData.albummid) {
+          ret.push(createSong(musicData))
+        }
+      })
+      return ret
     }
   },
   mounted () {

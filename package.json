@@ -15,6 +15,7 @@
     "better-scroll": "^1.12.6",
     "express": "^4.16.3",
     "fastclick": "^1.0.6",
+    "font-awesome": "^4.7.0",
     "js-base64": "^2.4.8",
     "jsonp": "^0.2.1",
     "mint-ui": "^2.2.13",
