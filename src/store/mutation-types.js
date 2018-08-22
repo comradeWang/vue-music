@@ -5,4 +5,9 @@
  * @Description: 一些常量
  */
 export const SET_SINGER = 'SET_SINGER'
-export const SET_DISS = 'SET_DISS'
+export const SET_PLAYING_STATE = 'SET_PLAYING_STATE'
+export const SET_FULL_SCREEN = 'SET_FULL_SCREEN'
+export const SET_PLAYLIST = 'SET_PLAYLIST'
+export const SET_SEQUNECELIST = 'SET_SEQUNECELIST'
+export const SET_MODE = 'SET_MODE'
+export const SET_CINDEX = 'SET_CINDEX'

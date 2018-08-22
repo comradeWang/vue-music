@@ -9,8 +9,23 @@ const mutations = {
   [types.SET_SINGER] (state, singer) {
     state.state.singer = singer
   },
-  [types.SET_DISS] (state, diss) {
-    state.state.diss = diss
+  [types.SET_PLAYING_STATE] (state, playing) {
+    state.state.playing = playing
+  },
+  [types.SET_FULL_SCREEN] (state, fullScreen) {
+    state.state.fullScreen = fullScreen
+  },
+  [types.SET_PLAYLIST] (state, playingList) {
+    state.state.playingList = playingList
+  },
+  [types.SET_SEQUNECELIST] (state, sequenceList) {
+    state.state.sequenceList = sequenceList
+  },
+  [types.SET_MODE] (state, mode) {
+    state.state.mode = mode
+  },
+  [types.SET_CINDEX] (state, cIndex) {
+    state.state.cIndex = cIndex
   }
 }
 export default mutations

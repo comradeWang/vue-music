@@ -9,5 +9,14 @@
 export default {
   singer (state) {
     return state.state.singer
+  },
+  playing (state) { return state.state.playing },
+  fullScreen (state) { return state.state.fullScreen },
+  playingList (state) { return state.state.playingList },
+  sequenceList (state) { return state.state.sequenceList },
+  mode (state) { return state.state.mode },
+  cIndex (state) { return state.state.cIndex },
+  currentSong (state) {
+    return state.state.playingList[state.state.cIndex]
   }
 }
