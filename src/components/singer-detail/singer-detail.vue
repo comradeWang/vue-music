@@ -28,16 +28,16 @@ export default {
       'diss'
     ]),
     title () {
-      // if (this.singer !== undefined) {
-      return this.singer.name
-      // }
-      // return ''
+      if (this.singer !== undefined) {
+        return this.singer.name
+      }
+      return ''
     },
     bgImage () {
-      // if (this.singer !== undefined) {
-      return this.singer.avatar
-      // }
-      // return ''
+      if (this.singer !== undefined) {
+        return this.singer.avatar
+      }
+      return ''
     }
   },
   methods: {
@@ -46,6 +46,7 @@ export default {
      * @private
      */
     _getSingerInfo () {
+      console.log(!this.singer)
       if (!this.singer) {
         this.$router.push('/singer')
         return
@@ -68,6 +69,8 @@ export default {
     }
   },
   mounted () {
+  },
+  created () {
     this._getSingerInfo()
   }
 }

@@ -5,7 +5,7 @@
  * @Description: $
  */
 let state = {
-  singer: {},
+  singer: undefined,
   diss: ''
 }
 
