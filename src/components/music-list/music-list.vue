@@ -7,7 +7,7 @@
       <div class="title">{{title}}</div>
     </div>
     <div class="bg-image" :style="backgroundImg" ref="bgImage">
-      <div class="play-wrapper">
+      <div class="play-wrapper" v-show="playShow">
         <div class="play">
           <i class="fa fa-play" aria-hidden="true"></i>
           <span class="text">随机播放全部</span>
@@ -46,7 +46,8 @@ export default {
     return {
       probeType: 3,
       listenScroll: true,
-      scrollY: 0 // y轴方向滚动的距离
+      scrollY: 0, // y轴方向滚动的距离
+      playShow: true
     }
   },
   props: {
@@ -78,9 +79,11 @@ export default {
         zIndex = 10
         this.$refs.bgImage.style.paddingTop = '0px'
         this.$refs.bgImage.style.height = '40px'
+        this.playShow = false
       } else {
         this.$refs.bgImage.style.paddingTop = '70%'
         this.$refs.bgImage.style.height = 0
+        this.playShow = true
       }
       this.$refs.bgImage.style.zIndex = zIndex
       this.$refs.bgImage.style[TRANSFORM] = `scale(${scale})`
