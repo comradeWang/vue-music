@@ -23,7 +23,7 @@
       ref="list"
       @scroll="scroll">
       <div class="song-list-wrapper">
-        <SongList :songs="songList"></SongList>
+        <SongList @select="getSong" :songs="songList"></SongList>
       </div>
       <div class="loading-container" v-show="!songList.length">
         <Loading></Loading>
@@ -37,6 +37,7 @@ import Scroll from '../../base/scroll/scroll'
 import SongList from '../song-list/song-list'
 import * as dom from '~common/js/dom'
 import Loading from '@/base/loading/loading.vue'
+import {mapActions} from 'vuex'
 const REHEIGHT = 40
 const TRANSFORM = dom.prefixStyle('transform')
 export default {
@@ -100,7 +101,22 @@ export default {
     },
     scroll (pos) {
       this.scrollY = pos.y
-    }
+    },
+    /**
+     * 获得点击歌曲信息，和位置
+     * @param item
+     * @param index
+     */
+    getSong (item, index) {
+      console.log(item, index)
+      this.selectPlay({
+        list: this.songList,
+        index: index
+      })
+    },
+    ...mapActions([
+      'selectPlay'
+    ])
   },
   mounted () {
     this.imageHeight = this.$refs.bgImage.clientHeight

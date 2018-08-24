@@ -2,10 +2,22 @@
 
 body, html
   font-family Arial, "Helvetica Neue", Helvetica, sans-serif
-  -webkit-user-select  none
-  -moz-user-select  none
-  -ms-user-select  none
+  -webkit-user-select none
+  -moz-user-select none
+  -ms-user-select none
   user-select none
   -ms-scrollbar-highlight-color transparent
   background-color $color-background
   color #ffffff
+
+/* 清理浮动 */
+.clearFix:after
+  visibility: hidden
+  display: block
+  font-size: 0
+  content: " "
+  clear: both
+  height: 0
+
+.clearFix
+  zoom: 1

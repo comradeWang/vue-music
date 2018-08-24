@@ -27,7 +27,6 @@ export default {
      * @param singer
      */
     selectSinger (singer) {
-      console.log(singer.name)
       this.$router.push({
         path: `/singer/${singer.id}`
       })
@@ -85,8 +84,7 @@ export default {
       return hot.concat(ret)
     },
     ...mapMutations({
-      setSinger: 'SET_SINGER',
-      setDiss: 'SET_DISS'
+      setSinger: 'SET_SINGER'
     })
   },
   mounted () {
